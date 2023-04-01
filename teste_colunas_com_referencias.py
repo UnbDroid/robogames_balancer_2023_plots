@@ -2,7 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("vai31.csv")
+data = pd.read_csv("csv/vai31.csv")
 column_names = [
     "uTheta", 
     "uOmega", 

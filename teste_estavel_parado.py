@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("vai_estavel.csv")
+data = pd.read_csv("csv/vai_estavel.csv")
 column_names = ["uTheta", "uOmega", "uPosition", "uVelocity", "uiPosition", "uAcceleration", "Position"]
 data.columns = column_names
 
