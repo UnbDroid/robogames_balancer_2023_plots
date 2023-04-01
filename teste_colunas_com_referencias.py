@@ -2,22 +2,24 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("csv/vai31.csv")
+data = pd.read_csv("csv/coleta2.csv")
 column_names = [
     "uTheta", 
     "uOmega", 
     "uPosition", 
     "uVelocity", 
-    "uiPosition", 
     "uAcceleration", 
+    "Theta",
+    "Omega",
     "Position", 
     "Velocity", 
+    "Acceleration",
     "RefPosition",
-    "RefVelocity",
+    "RefVelocity"
  ]
 data.columns = column_names
 # data = data.iloc[50000:60001]
-data['AllSignals'] = data['uTheta'] + data['uOmega'] + data['uPosition'] + data['uVelocity'] + data['uAcceleration']
+data['AllSignals'] = data['uOmega'] + data['uPosition'] + data['uVelocity'] + data['uAcceleration']
 
 new_colums = ["AllSignals"] + column_names
 
@@ -26,7 +28,15 @@ fig, axes = plt.subplots(nrows=7, ncols=1, figsize=(10, 24))
 
 # Iterate through each column and create a line plot
 for index, column_name in enumerate(new_colums):
-    if column_name not in ["Position", "RefPosition", "Velocity", "RefVelocity"]:
+    if column_name not in [
+        "Theta",
+        "Omega",
+        "Acceleration",
+        "Position", 
+        "RefPosition", 
+        "Velocity", 
+        "RefVelocity"
+    ]:
         axes[index].plot(data[column_name], label=column_name)
         axes[index].set_ylabel(column_name)
         axes[index].legend()

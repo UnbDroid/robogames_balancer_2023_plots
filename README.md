@@ -2,6 +2,10 @@
 
 Repo com codigo pra plotar dados e debugar controlador do balancer.
 
+## Repo Principal
+
+- [Balancer 2023](https://github.com/UnbDroid/Robogames_balancer_2023)
+
 ## Dependencias
 
 Python:
