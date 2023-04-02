@@ -21,3 +21,7 @@ Comando para copiar csvs para seu diretorio atual:
 ```bash
 scp debian@192.168.8.1:/home/debian/ros_catkin_ws/vai31.csv .
 ```
+
+Para rodar:
+0. na linha 4 de `teste_colunas_com_referencias.py` mude para o arquivo que quiser ler.
+1. rode com `python teste_colunas_com_referencias.py`
