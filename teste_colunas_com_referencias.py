@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("csv/coleta19.csv", header=None)
+data = pd.read_csv("csv/plote1.csv", header=None)
 
 column_names = [
     "uTheta", 
