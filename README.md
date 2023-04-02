@@ -20,15 +20,15 @@ pip install numpy matplotlib pandas
 Comando para copiar csvs para seu diretorio atual:
 
 ```bash
-scp debian@192.168.8.1:/home/debian/ros_catkin_ws/vai31.csv ./csv/
+scp debian@192.168.8.1:/home/debian/ros_catkin_ws/nomearquivo.csv ./csv/
 ```
 
 ## Para rodar
 
 ### Manual
 
-0. na linha 4 de `teste_colunas_com_referencias.py` mude para o arquivo que quiser ler.
-1. rode com `python teste_colunas_com_referencias.py`
+0. na linha 4 de `main.py nomearquivo.csv` mude para o arquivo que quiser ler.
+1. rode com `python main.py nomearquivo.csv`
 
 # Auto
 
