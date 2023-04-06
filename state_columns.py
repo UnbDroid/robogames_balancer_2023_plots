@@ -4,9 +4,9 @@ columns = [
     "Position", 
     "Velocity", 
     "Acceleration",
-    # "time", 
-    # "VoltaDir",
-    # "VoltaEsq",
+    "time", 
+    "VoltaDir",
+    "VoltaEsq",
 ]
 
 has_ref_columns = [

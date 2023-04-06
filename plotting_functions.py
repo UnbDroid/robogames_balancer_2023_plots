@@ -27,7 +27,8 @@ def plot_multiple(
     controller_gains_string,
     data, 
     printable_columns,
-    columns_that_have_refs
+    columns_that_have_refs,
+    plot_over_time
 ):
     fig, axes = plt.subplots(nrows=len(columns_to_print), ncols=1, figsize=(10, 24))
 
@@ -35,28 +36,56 @@ def plot_multiple(
 
     # Iterate through each column and create a line plot
     for index, column_name in enumerate(printable_columns):
-        axes[index].plot(data[column_name], label=column_name)
+        axes[index] = plot_single_data(
+            ax2=axes[index],
+            data=data, 
+            with_time=plot_over_time, 
+            column_name=column_name
+        )
         if(column_name in columns_that_have_refs):
             ref_column_name= f"Ref{column_name}"
-            axes[index].plot(data[ref_column_name], label=ref_column_name)
+            axes[index] = plot_single_data(
+                ax2=axes[index],
+                data=data, 
+                with_time=plot_over_time, 
+                column_name=ref_column_name
+            )
         axes[index].set_ylabel(column_name)
         axes[index].legend()
         axes[index].grid(True)
     # Add some space between the subplots
     fig.tight_layout(pad=3.0)
-    
+
+def plot_single_data(ax2, data, with_time, column_name):
+    if(with_time and column_name != "time"):
+        ax2.plot(data["time"], data[column_name], label=column_name)
+    else:    
+        ax2.plot(data[column_name], label=column_name)
+    return ax2
 
 def plot_separate_graph_with_ref(
     data,
     column_name, 
     ref_column_name, 
-    title
+    title,
+    plot_over_time
 ):
     fig2, ax2 = plt.subplots(figsize=(10, 6))
     fig2.suptitle(title, fontsize=16)
 
-    ax2.plot(data[column_name], label=column_name)
-    ax2.plot(data[ref_column_name], label=ref_column_name)
+    ax2 = plot_single_data(
+        ax2=ax2,
+        data=data, 
+        with_time=plot_over_time, 
+        column_name=column_name
+    )
+
+    ax2 = plot_single_data(
+        ax2=ax2,
+        data=data, 
+        with_time=plot_over_time, 
+        column_name=ref_column_name
+    )
     ax2.set_ylabel(f'{column_name} / {ref_column_name}')
     ax2.legend()
     ax2.grid(True)
