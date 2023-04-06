@@ -1,16 +1,22 @@
 import matplotlib.pyplot as plt
 
-def init_fetch_first_line_of_file(data, column_names):
+def init_fetch_first_line_of_file(
+    data, 
+    column_names,
+    number_of_col_orig_file
+):
+    correction_size_file_columns = column_names + [""] * (number_of_col_orig_file - len(column_names))
     # Read the first row of the DataFrame
-    first_row = data.iloc[0]
+    first_row = data.iloc[[0]]
+    first_row.columns = correction_size_file_columns
+    controller_gains_string = f"Controller Gains: \n"
+    for column_name in column_names:
+        print(first_row[column_name][0])
+        value = first_row[column_name][0]
+        controller_gains_string += f"| {column_name}: {value}"
 
-    # Create a dictionary to store the first row values with the column names as keys
-    K = {}
-    for column_name in column_names[:5]:
-        K[column_name] = first_row[column_name]
     # Print all K from the controller
-    print("Controller Gains are:", K)
-    controller_gains_string = f"Controller Gains: {K}"
+    print(controller_gains_string)
 
     # Drop the first row from the DataFrame
     data = data.drop(0)

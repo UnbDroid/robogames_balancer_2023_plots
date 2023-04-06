@@ -19,6 +19,8 @@ pip install numpy matplotlib pandas
 
 Comando para copiar csvs para seu diretorio atual:
 
+## Baixar CSV
+
 ```bash
 scp debian@192.168.8.1:/home/debian/ros_catkin_ws/nomearquivo.csv ./csv/
 ```

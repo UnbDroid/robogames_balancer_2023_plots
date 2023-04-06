@@ -11,7 +11,7 @@ column_names = [
     "uTheta", 
     "uOmega", 
     "uPosition", 
-    "uVelocity", 
+    "uVelocity",
     "uAcceleration", 
     "Theta",
     "Omega",
@@ -20,12 +20,24 @@ column_names = [
     "Acceleration",
     "RefPosition",
     "RefVelocity"
- ]
+]
+
+controller_column_names = [
+    "uTheta", 
+    "uOmega", 
+    "uPosition", 
+    "uVelocity",
+    "uIPosition",
+    "uAcceleration", 
+]
+
+title, data = plotting_functions.init_fetch_first_line_of_file(
+    data, 
+    controller_column_names,
+    len(column_names)
+)
+
 data.columns = column_names
-
-
-title, data = plotting_functions.init_fetch_first_line_of_file(data, column_names)
-
 # data = data.iloc[60000:100000]
 
 data['AllSignals'] = data['uTheta'] + data['uOmega'] + data['uPosition'] + data['uVelocity'] + data['uAcceleration']
