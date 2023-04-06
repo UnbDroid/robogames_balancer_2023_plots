@@ -15,9 +15,6 @@ def init_fetch_first_line_of_file(
         value = first_row[column_name][0]
         controller_gains_string += f"| {column_name}: {value}"
 
-    # Print all K from the controller
-    print(controller_gains_string)
-
     # Drop the first row from the DataFrame
     data = data.drop(0)
 
@@ -29,7 +26,8 @@ def plot_multiple(
     columns_to_print,
     controller_gains_string,
     data, 
-    printable_columns
+    printable_columns,
+    columns_that_have_refs
 ):
     fig, axes = plt.subplots(nrows=len(columns_to_print), ncols=1, figsize=(10, 24))
 
@@ -38,7 +36,7 @@ def plot_multiple(
     # Iterate through each column and create a line plot
     for index, column_name in enumerate(printable_columns):
         axes[index].plot(data[column_name], label=column_name)
-        if(column_name in ["Position", "Velocity"]):
+        if(column_name in columns_that_have_refs):
             ref_column_name= f"Ref{column_name}"
             axes[index].plot(data[ref_column_name], label=ref_column_name)
         axes[index].set_ylabel(column_name)

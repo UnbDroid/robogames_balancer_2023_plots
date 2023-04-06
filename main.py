@@ -35,7 +35,8 @@ plotting_functions.plot_multiple(
     printable_columns, 
     title, 
     data, 
-    printable_columns=printable_columns
+    printable_columns=printable_columns,
+    columns_that_have_refs=state_columns.has_ref_columns
 )
 plotting_functions.plot_separate_graph_with_ref(
     data=data,
@@ -47,7 +48,7 @@ plotting_functions.plot_separate_graph_with_ref(
     data=data,
     column_name='Velocity', 
     ref_column_name='RefVelocity', 
-    title=title
+    title=title,
 ) 
 
 printable_columns = state_columns.columns
@@ -56,7 +57,8 @@ plotting_functions.plot_multiple(
     printable_columns, 
     title, 
     data, 
-    printable_columns=printable_columns
+    printable_columns=printable_columns,
+    columns_that_have_refs=state_columns.has_ref_columns
 )
 
 # Display the plot

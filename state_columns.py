@@ -8,3 +8,8 @@ columns = [
     # "VoltaDir",
     # "VoltaEsq",
 ]
+
+has_ref_columns = [
+    "Position", 
+    "Velocity", 
+]
