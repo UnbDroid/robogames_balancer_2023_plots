@@ -29,8 +29,9 @@ scp debian@192.168.8.1:/home/debian/ros_catkin_ws/nomearquivo.csv ./csv/
 
 ### Manual
 
-0. na linha 4 de `main.py nomearquivo.csv` mude para o arquivo que quiser ler.
-1. rode com `python main.py nomearquivo.csv`
+0. importe `usecase_N_cols` no inicio do arquivo `main.py`, `N` sendo o número de colunas do arquivo csv que quiser ler.
+1. sete a variavel como `column_names = usecase_N_cols.column_names`
+2. rode com `python main.py nomearquivo.csv`
 
 # Auto
 
