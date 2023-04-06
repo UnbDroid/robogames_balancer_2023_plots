@@ -19,7 +19,8 @@ column_names = [
     "Velocity", 
     "Acceleration",
     "RefPosition",
-    "RefVelocity"
+    "RefVelocity",
+    "time",
 ]
 
 controller_column_names = [
@@ -53,19 +54,19 @@ printable_columns = [
     "uAcceleration"
 ]
 
-plotting_functions.print_control_signals(
+plotting_functions.plot_control_signals(
     printable_columns, 
     title, 
     data, 
     printable_columns=printable_columns
 )
-plotting_functions.print_separate_graph_with_ref(
+plotting_functions.plot_separate_graph_with_ref(
     data=data,
     column_name='Position', 
     ref_column_name='RefPosition', 
     title=title 
 ) 
-plotting_functions.print_separate_graph_with_ref(
+plotting_functions.plot_separate_graph_with_ref(
     data=data,
     column_name='Velocity', 
     ref_column_name='RefVelocity', 

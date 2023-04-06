@@ -25,7 +25,7 @@ def init_fetch_first_line_of_file(
     data.reset_index(drop=True, inplace=True)
     return (controller_gains_string, data)
 
-def print_control_signals(
+def plot_control_signals(
     columns_to_print,
     controller_gains_string,
     data, 
@@ -53,7 +53,7 @@ def print_control_signals(
     fig.tight_layout(pad=3.0)
     
 
-def print_separate_graph_with_ref(
+def plot_separate_graph_with_ref(
     data,
     column_name, 
     ref_column_name, 
