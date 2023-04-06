@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import plotting_functions
+import usecase_15_cols
 import usecase_13_cols
 import usecase_12_cols
 
@@ -9,7 +10,7 @@ file_path = sys.argv[1]
 
 data = pd.read_csv(file_path, header=None)
 
-column_names = usecase_12_cols.column_names
+column_names = usecase_15_cols.column_names
 controller_column_names = [
     "uTheta", 
     "uOmega", 
@@ -38,10 +39,12 @@ printable_columns = [
     "uPosition", 
     "Position",
     "uVelocity", 
-    "uAcceleration"
+    "uAcceleration",
+    "VoltaDir",
+    "VoltaEsq",
 ]
 
-plotting_functions.plot_control_signals(
+plotting_functions.plot_multiple(
     printable_columns, 
     title, 
     data, 
@@ -59,6 +62,24 @@ plotting_functions.plot_separate_graph_with_ref(
     ref_column_name='RefVelocity', 
     title=title
 ) 
+
+printable_columns = [
+    "Theta", 
+    "Omega", 
+    "Position", 
+    "Velocity", 
+    "Acceleration",
+    "time", 
+    "VoltaDir",
+    "VoltaEsq",
+]
+
+plotting_functions.plot_multiple(
+    printable_columns, 
+    title, 
+    data, 
+    printable_columns=printable_columns
+)
 
 # Display the plot
 plt.show()

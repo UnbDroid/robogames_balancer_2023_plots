@@ -9,7 +9,7 @@ def init_fetch_first_line_of_file(
     # Read the first row of the DataFrame
     first_row = data.iloc[[0]]
     first_row.columns = correction_size_file_columns
-    controller_gains_string = f"Controller Gains: \n"
+    controller_gains_string = f"Controller Gains: "
     for column_name in column_names:
         print(first_row[column_name][0])
         value = first_row[column_name][0]
@@ -25,7 +25,7 @@ def init_fetch_first_line_of_file(
     data.reset_index(drop=True, inplace=True)
     return (controller_gains_string, data)
 
-def plot_control_signals(
+def plot_multiple(
     columns_to_print,
     controller_gains_string,
     data, 
@@ -37,18 +37,13 @@ def plot_control_signals(
 
     # Iterate through each column and create a line plot
     for index, column_name in enumerate(printable_columns):
-        if column_name not in [
-            "Theta",
-            "Omega",
-            "Acceleration",
-            "RefPosition", 
-            "Velocity", 
-            "RefVelocity"
-        ]:
-            axes[index].plot(data[column_name], label=column_name)
-            axes[index].set_ylabel(column_name)
-            axes[index].legend()
-            axes[index].grid(True)
+        axes[index].plot(data[column_name], label=column_name)
+        if(column_name in ["Position", "Velocity"]):
+            ref_column_name= f"Ref{column_name}"
+            axes[index].plot(data[ref_column_name], label=ref_column_name)
+        axes[index].set_ylabel(column_name)
+        axes[index].legend()
+        axes[index].grid(True)
     # Add some space between the subplots
     fig.tight_layout(pad=3.0)
     
