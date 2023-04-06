@@ -2,27 +2,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import plotting_functions
+import usecase_13_cols
+import usecase_12_cols
 
 file_path = sys.argv[1]
 
 data = pd.read_csv(file_path, header=None)
 
-column_names = [
-    "uTheta", 
-    "uOmega", 
-    "uPosition", 
-    "uVelocity",
-    "uAcceleration", 
-    "Theta",
-    "Omega",
-    "Position", 
-    "Velocity", 
-    "Acceleration",
-    "RefPosition",
-    "RefVelocity",
-    "time",
-]
-
+column_names = usecase_12_cols.column_names
 controller_column_names = [
     "uTheta", 
     "uOmega", 
