@@ -14,7 +14,7 @@ file_path = sys.argv[1]
 
 data = pd.read_csv(file_path, header=None)
 
-column_names = usecase_12_cols.column_names
+column_names = usecase_13_cols.column_names
 controller_column_names = controller_columns.columns
 
 title, data = plotting_functions.init_fetch_first_line_of_file(
