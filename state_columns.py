@@ -7,6 +7,7 @@ columns = [
     "time", 
     "VoltaDir",
     "VoltaEsq",
+    "dt"
 ]
 
 has_ref_columns = [

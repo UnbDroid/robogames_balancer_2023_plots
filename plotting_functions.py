@@ -79,13 +79,13 @@ def plot_separate_graph_with_ref(
         with_time=plot_over_time, 
         column_name=column_name
     )
-
-    ax2 = plot_single_data(
-        ax2=ax2,
-        data=data, 
-        with_time=plot_over_time, 
-        column_name=ref_column_name
-    )
+    if(ref_column_name != ""):
+        ax2 = plot_single_data(
+            ax2=ax2,
+            data=data, 
+            with_time=plot_over_time, 
+            column_name=ref_column_name
+        )
     ax2.set_ylabel(f'{column_name} / {ref_column_name}')
     ax2.legend()
     ax2.grid(True)

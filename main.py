@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import sys
 import plotting_functions
+import usecase_16_cols
 import usecase_15_cols
 import usecase_13_cols
 import usecase_12_cols
@@ -15,7 +16,7 @@ file_path = sys.argv[1]
 
 data = pd.read_csv(file_path, header=None)
 
-column_names = usecase_15_cols.column_names
+column_names = usecase_16_cols.column_names
 controller_column_names = controller_columns.columns
 
 title, data = plotting_functions.init_fetch_first_line_of_file(
@@ -64,6 +65,14 @@ plotting_functions.plot_separate_graph_with_ref(
     data=data,
     column_name='Velocity', 
     ref_column_name='RefVelocity', 
+    title=title,
+    plot_over_time=True
+) 
+
+plotting_functions.plot_separate_graph_with_ref(
+    data=data,
+    column_name='dt', 
+    ref_column_name='', 
     title=title,
     plot_over_time=True
 ) 
