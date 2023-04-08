@@ -53,13 +53,13 @@ plotting_functions.plot_separate_graph_with_ref(
     plot_over_time=True
 ) 
 
-plotting_functions.plot_separate_graph_with_ref(
-    data=data,
-    column_name='Position', 
-    ref_column_name='RefPosition', 
-    title=title,
-    plot_over_time=False
-) 
+# plotting_functions.plot_separate_graph_with_ref(
+#     data=data,
+#     column_name='Position', 
+#     ref_column_name='RefPosition', 
+#     title=title,
+#     plot_over_time=False
+# ) 
 
 plotting_functions.plot_separate_graph_with_ref(
     data=data,
